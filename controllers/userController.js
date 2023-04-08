@@ -1,1 +1,10 @@
-// The almighty temp controller, not to be confused with temperature controller.
+const { ObjectId } = require('mongoose').Types;
+const { User, Thought, Reaction } = require('../models');
+
+// getAllUsers,
+// getUserById,
+// createUser,
+// updateUser,
+// deleteUser,
+// addFriend,
+// deleteFriend
