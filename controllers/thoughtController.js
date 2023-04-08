@@ -1,16 +1,6 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-// getAllThoughts,
-// getThoughtById,
-// createThought,
-// updateThought,
-// deleteThought,
-// createReaction,
-// deleteReaction
-
-const { Thought, User } = require('../models');
-
 module.exports = {
   // GET all thoughts
   getAllThoughts(req, res) {

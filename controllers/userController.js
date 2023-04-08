@@ -1,16 +1,6 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-// getAllUsers,
-// getUserById,
-// createUser,
-// updateUser,
-// deleteUser,
-// addFriend,
-// deleteFriend
-
-const { User } = require('../models');
-
 module.exports = {
   // GET all users
   getAllUsers(req, res) {
