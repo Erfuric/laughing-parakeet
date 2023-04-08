@@ -21,3 +21,37 @@
 
 This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
 */
+
+const { Schema, Types } = require('mongoose');
+
+const reactionSchema = new Schema(
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reationBody: {
+      type: String,
+      required: true,
+      maxlength: 280,
+      minlength: 1,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  }
+  // Unsure if needed
+  // {
+  //   toJSON: {
+  //     getters: tyue,
+  //   },
+  //   id: false,
+  // }
+);
+
+module.exports = reactionSchema;
