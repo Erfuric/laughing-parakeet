@@ -30,11 +30,11 @@ const reactionSchema = new Schema(
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    reationBody: {
+    reactionBody: {
       type: String,
       required: true,
-      maxlength: 280,
       minlength: 1,
+      maxlength: 280,
     },
     username: {
       type: String,
@@ -43,15 +43,9 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (createdAtVal) => dateFormat(createdAtVal)
     },
   }
-  // Unsure if needed
-  // {
-  //   toJSON: {
-  //     getters: tyue,
-  //   },
-  //   id: false,
-  // }
 );
 
 module.exports = reactionSchema;
