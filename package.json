@@ -1,0 +1,24 @@
+{
+  "name": "laughing-parakeet",
+  "version": "1.0.0",
+  "description": "An API created using Express.js, MongoDB, and Mongoose ODM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erfuric/laughing-parakeet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erfuric/laughing-parakeet/issues"
+  },
+  "homepage": "https://github.com/Erfuric/laughing-parakeet#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3"
+  }
+}

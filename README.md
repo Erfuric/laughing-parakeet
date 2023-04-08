@@ -10,8 +10,8 @@ To be used as part of a social network web application where users can share the
 
 # Required Packages
 
-PLACEHOLDER TEXT
-
+[Express.js](https://www.npmjs.com/package/express)
+[Mongoose](https://www.npmjs.com/package/mongoose)
 # Screenshots
 
 PLACEHOLDER TEXT
