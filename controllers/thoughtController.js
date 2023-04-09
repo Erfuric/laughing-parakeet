@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 module.exports = {
@@ -18,10 +17,10 @@ module.exports = {
   // GET a single thought by ID
   getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
-      .populate({
-        path: 'reactions',
-        select: '-__v'
-      })
+      // .populate({
+      //   path: 'reactions',
+      //   select: '-__v'
+      // })
       .select('-__v')
       .then((thought) =>
         !thought
@@ -100,7 +99,7 @@ module.exports = {
 deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: ObjectId(req.params.reactionId) } } },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { new: true }
     )
       .then((thought) =>

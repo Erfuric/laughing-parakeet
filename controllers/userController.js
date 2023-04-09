@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 module.exports = {
@@ -24,7 +23,7 @@ module.exports = {
 
   // GET a single user by ID
   getUserById({ params }, res) {
-    User.findOne({ _id: ObjectId(params.userId) })
+    User.findOne({ _id: params.userId })
       .populate({
         path: 'thoughts',
         select: '-__v'
@@ -55,7 +54,7 @@ module.exports = {
 
   // PUT update a user by ID
   updateUser({ params, body }, res) {
-    User.findOneAndUpdate({ _id: ObjectId(params.userId) }, body, { new: true, runValidators: true })
+    User.findOneAndUpdate({ _id: params.userId }, body, { new: true, runValidators: true })
       .then(dbUserData => {
         if (!dbUserData) {
           return res.status(404).json({ message: 'No user found with this id!' });
@@ -67,7 +66,7 @@ module.exports = {
 
   // DELETE a user by ID
   deleteUser({ params }, res) {
-    User.findOneAndDelete({ _id: ObjectId(params.userId) })
+    User.findOneAndDelete({ _id: params.userId })
       .then(dbUserData => {
         if (!dbUserData) {
           return res.status(404).json({ message: 'No user found with this id!' });
@@ -85,8 +84,8 @@ module.exports = {
   // POST add a friend to a user's friend list
   addFriend({ params }, res) {
     User.findOneAndUpdate(
-      { _id: ObjectId(params.userId) },
-      { $addToSet: { friends: ObjectId(params.friendId) } },
+      { _id: params.userId },
+      { $addToSet: { friends: params.friendId } },
       { new: true, runValidators: true }
     )
       .then(dbUserData => {
@@ -101,15 +100,16 @@ module.exports = {
   // DELETE remove a friend from a user's friend list
   deleteFriend({ params }, res) {
     User.findOneAndUpdate(
-      { _id: ObjectId(params.userId) },
-      { $pull: { friends: ObjectId(params.friendId) } },
+      { _id: params.userId },
+      { $pull: { friends: params.friendId } },
       { new: true }
     )
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: 'No thought with that ID' })
-          : res.json(thought)
-      )
-      .catch((err) => res.status(500).json(err));
+      .then(dbUserData => {
+        if (!dbUserData) {
+          return res.status(404).json({ message: 'No user found with this id!' });
+        }
+        res.json(dbUserData);
+      })
+      .catch(err => res.status(500).json(err));
   },
 }
