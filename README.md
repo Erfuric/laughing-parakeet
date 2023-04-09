@@ -15,7 +15,7 @@ To be used as part of a social network web application where users can share the
 
 # Video Demonstration
 
-[Uploading Social Thought API Demo.webm…]()
+[Social Thought API Demo.webm](https://user-images.githubusercontent.com/17615940/230763279-b19055bf-06fe-40ad-891d-22cebb551fb6.webm)
 
 # Installation
 
