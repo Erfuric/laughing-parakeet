@@ -4,6 +4,8 @@
   "description": "An API created using Express.js, MongoDB, and Mongoose ODM.",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
+    "seed": "node utils/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
