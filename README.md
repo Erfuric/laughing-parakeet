@@ -13,17 +13,15 @@ To be used as part of a social network web application where users can share the
 [Express.js](https://www.npmjs.com/package/express)
 [Mongoose](https://www.npmjs.com/package/mongoose)
 
-# Screenshots
-
-PLACEHOLDER TEXT
-
 # Video Demonstration
 
 PLACEHOLDER TEXT
 
 # Installation
 
-PLACEHOLDER TEXT
+Perform npm install for required packages
+npm run seed to add example users
+node index to run api
 
 # License
 
